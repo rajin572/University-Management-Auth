@@ -3,6 +3,11 @@ import { genarateUserID } from './user.utilties';
 import { IUser } from './users.interfece';
 import { User } from './usres.model';
 
+const getUser = async (): Promise<IUser[]> => {
+  const result = User.find();
+  return result;
+};
+
 const createUser = async (user: IUser): Promise<IUser | null> => {
   //Auto genarated ID
   const id = await genarateUserID();
@@ -25,4 +30,5 @@ const createUser = async (user: IUser): Promise<IUser | null> => {
 
 export const UserService = {
   createUser,
+  getUser,
 };
